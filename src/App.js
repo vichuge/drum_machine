@@ -1,9 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.scss';
-import Button from './components/button/Button';
 import Card from './components/card/Card';
-import Power from './components/power/Power';
-import Bank from './components/bank/Bank';
 
 const App = () => {
   const [display, setDisplay] = useState('');
@@ -57,28 +54,23 @@ const App = () => {
   ];
 
   const actionKey = (e) => {
-    console.log('actionkey');
-    console.log(e.key.toUpperCase());
     playSound(e.key.toUpperCase());
   };
 
   const actionClick = (text) => {
-    console.log('actionClick');
-    console.log(text);
     playSound(text);
   };
 
   const playSound = (selector) => {
-    console.log('I enter on playSound');
-    const audio = document.getElementById(selector);
-    console.log(audio);
-    audio.play();
+    const player = document.getElementById(selector);
+    player.play();
     setDisplay(selector);
   };
 
   useEffect(() => {
     window.addEventListener("keyup", actionKey);
   });
+  
   return (
     <div className="container">
       <div className='row'>
